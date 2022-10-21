@@ -2,7 +2,7 @@
 
 ## Correction Atelier
 
-[correction](./correction_tripodvisor/README.md)
+[correction](./correction_tripodvisor/correction.md)
 
 ## 1. Organiser son code JS
 

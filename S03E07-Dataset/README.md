@@ -95,20 +95,20 @@ const reviewsFilter = {
     // - si commentaire caché => on l'affiche 
     // - si commentaire affiché => on le cache
     toggleReviewsFromRating: function(rating) {
-
         // On commence par récupérer la liste des commentaires ayant la note donnée
         // => et grâce au dataset, c'est vraiment très pratique !
-        const reviewsToFilter = document.querySelectorAll('.review[data-rating="'+ rating +'"]');
-
+        const reviewsToFilter = document.querySelectorAll('.review');
         // Reste à parcourir chaque commentaire pour inverser sa visibilité
         for (const reviewElement of reviewsToFilter) {
-            // On peut faire ça directement avec toggle
-            // - si la classe review--hidden est présente, toggle l'enlève
-            // - si la classe review--hidden est absente, toggle la rajoute
-            reviewElement.classList.toggle('review--hidden');
+            if(reviewElement.dataset.rating == rating)
+            {
+                // On peut faire ça directement avec toggle
+                // - si la classe review--hidden est présente, toggle l'enlève
+                // - si la classe review--hidden est absente, toggle la rajoute
+                reviewElement.classList.toggle('review--hidden');
+            }
         }
     },
-};
 
 // On initialise les filtres une fois que le DOM est chargé
 document.addEventListener('DOMContentLoaded', reviewsFilter.init);
